@@ -22,8 +22,8 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/recipes' do
-    puts "I'm in the post"
-    puts "my params are #{params}"
+    @recipe = Recipe.create(params)
+    puts "Here's my info! #{@recipe.name}, #{@recipe.cook_time}"
   end
 
   delete '/recipes/:id/delete' do
