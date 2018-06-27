@@ -21,6 +21,11 @@ class ApplicationController < Sinatra::Base
     erb :show
   end
 
+  post '/recipes' do
+    puts "I'm in the post"
+    puts "my params are #{params}"
+  end
+
   delete '/recipes/:id/delete' do
     @recipe = Recipe.find_by_id(params[:id])
     @recipe.delete
